@@ -185,6 +185,13 @@ function updatePaginationControls() {
 
 function sortAssets(assets, sortKey) {
     return [...assets].sort((a, b) => {
+        // show favorites first
+        const aIsFav = favoriteAssetIds.has(a.asset_id);
+        const bIsFav = favoriteAssetIds.has(b.asset_id);
+        if (aIsFav !== bIsFav) {
+            return aIsFav ? -1 : 1;
+        }
+
         let vA, vB;
         const [key, dir] = sortKey.split('_');
         const m = dir === 'asc' ? 1 : -1;

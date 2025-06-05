@@ -24,10 +24,14 @@ A fast web interface for browsing Godot 4+ assets from the official Godot Asset 
 
 ## Getting Started
 
+# Go to the [Live Demo](https://lighar.github.io/Lighar.github.io/) to see the application in action.
+
+# Or run it locally:
+
 1. Clone the repository:
 ```bash
-git clone https://github.com/Lighar/godot-asset-viewer.git
-cd godot-asset-viewer
+git clone https://github.com/Lighar/Lighar.github.io.git
+cd Lighar.github.io
 ```
 
 2. Open `index.html` in your web browser
