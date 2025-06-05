@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godot 4+ Asset Viewer</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <button id="openFavModalBtn" title="Manage Favorites">⚙</button>
+        <h1>Godot 4+ Asset Library Viewer</h1>
+
+        <div class="controls-area">
+            <div class="filters">
+                <input type="text" id="filterTitle" placeholder="Filter by Title...">
+                <input type="text" id="filterAuthor" placeholder="Filter by Author...">
+                <select id="filterCategory"><option value="">All Categories</option></select>
+                <select id="filterGodotVersion"><option value="">All Godot Versions</option></select>
+                <input type="number" id="filterMinStars" placeholder="Min GitHub Stars">
+                <label for="filterFavorites"><input type="checkbox" id="filterFavorites"> Show Favorites Only</label>
+                <button id="resetFilters">Reset Filters</button>
+            </div>
+            <div class="sort-options">
+                <label for="sortKey" style="padding:0; border:none; font-weight:500;">Sort by:</label>
+                <select id="sortKey">
+                    <option value="updated_desc">Date Updated (Newest First)</option>
+                    <option value="updated_asc">Date Updated (Oldest First)</option>
+                    <option value="stars_desc">GitHub Stars (Most First)</option>
+                    <option value="stars_asc">GitHub Stars (Fewest First)</option>
+                    <option value="title_asc">Title (A-Z)</option>
+                    <option value="title_desc">Title (Z-A)</option>
+                </select>
+            </div>
+        </div>
+        <div class="warning-message">
+            Note: Some assets may not show GitHub stars / have wrong stars numbers as they don't use their GitHub repo for their icon which I used to find the associated repo. This is to avoid spamming the Godot API to get info on all assets. Failsafes are in place, but some values may be wrong.
+        </div>
+        <div id="asset-count">Loading assets...</div>
+        <div id="asset-grid" class="asset-grid">
+            <div class="loader">Loading assets from JSON...</div>
+        </div>
+        <div class="pagination-controls" id="paginationControls">
+            <button id="prevPageBtn" disabled>Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPageBtn" disabled>Next</button>
+        </div>
+    </div>
+
+    <div id="favModalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeFavModalBtn" class="modal-close-btn">×</button>
+            <h3>Export/Import Favorites</h3>
+            <div class="modal-actions">
+                <textarea id="favoritesImportExportArea" placeholder="Paste GitHub 'owner/repo' list here (one per line) to import, or see exported list here."></textarea>
+                <div class="modal-buttons">
+                    <button id="exportFavoritesBtn">Export Favorites List</button>
+                    <button id="importFavoritesBtn">Import Favorites from List</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Made by <a href="https://github.com/Lighar" >Lighar</a> | <a href="https://opensource.org/licenses/MIT" >MIT License</a></p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
